@@ -18,7 +18,6 @@ import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDResources;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
-import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
 import org.apache.pdfbox.pdmodel.interactive.annotation.PDAppearanceStream;
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
 import org.w3c.dom.Element;
@@ -136,7 +135,7 @@ public class PdfBoxPerDocumentFormState {
     private void createCheckboxFontResource() {
         if (checkBoxFontResource == null) {
             checkBoxFontResource = new PDResources();
-            checkBoxFontResource.put(COSName.getPDFName("OpenHTMLZap"), new PDType1Font(Standard14Fonts.FontName.ZAPF_DINGBATS));
+            checkBoxFontResource.put(COSName.getPDFName("OpenHTMLZap"), PDType1Font.ZAPF_DINGBATS);
         }
     }
     
@@ -164,8 +163,8 @@ public class PdfBoxPerDocumentFormState {
 
         PDResources resources = new PDResources();
         /* Defaultfonts */
-        resources.put(COSName.HELV, new PDType1Font(Standard14Fonts.FontName.HELVETICA));
-        resources.put(COSName.ZA_DB, new PDType1Font(Standard14Fonts.FontName.ZAPF_DINGBATS));
+        resources.put(COSName.HELV, PDType1Font.HELVETICA);
+        resources.put(COSName.ZA_DB, PDType1Font.ZAPF_DINGBATS);
         for (Map.Entry<PDFont, String> fnt : controlFonts.entrySet()) {
             resources.put(COSName.getPDFName(fnt.getValue()), fnt.getKey());
         }

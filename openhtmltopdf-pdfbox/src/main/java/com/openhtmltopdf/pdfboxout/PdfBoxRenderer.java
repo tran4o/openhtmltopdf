@@ -670,7 +670,7 @@ public class PdfBoxRenderer implements Closeable, PageSupplier {
             }
 
             if (pdfAConformance != PdfAConformance.NONE) {
-                PDFAIdentificationSchema pdfaid = metadata.createAndAddPDFAIdentificationSchema();
+                PDFAIdentificationSchema pdfaid = metadata.createAndAddPFAIdentificationSchema();
                 pdfaid.setConformance(pdfAConformance.getConformanceValue());
                 pdfaid.setPart(pdfAConformance.getPart());
 
